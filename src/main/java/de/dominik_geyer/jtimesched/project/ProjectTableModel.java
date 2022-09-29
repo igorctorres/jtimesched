@@ -48,7 +48,7 @@ public class ProjectTableModel extends AbstractTableModel {
 	private ArrayList<Project> arPrj;
 	
 	public ProjectTableModel(ArrayList<Project> arPrj) {
-		this.arPrj = arPrj;
+		this.arPrj = new ArrayList<>(arPrj);
 	}
 	
 	@Override
