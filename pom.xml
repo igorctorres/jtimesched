@@ -90,6 +90,12 @@
                     </dependency>
                 </dependencies>
             </plugin>
+
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.7.2.0</version>
+            </plugin>
         </plugins>
     </build>
 
@@ -101,6 +107,15 @@
                 <version>3.2.0</version>
                 <configuration>
                     <configLocation>${basedir}/rulesets/checkstyle.xml</configLocation>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.7.2.0</version>
+                <configuration>
+                    <includeFilterFile>rulesets/spotbugs.xml</includeFilterFile>
                 </configuration>
             </plugin>
         </plugins>
