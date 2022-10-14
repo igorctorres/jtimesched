@@ -58,6 +58,8 @@ public class TimeCellRenderer extends JLabel implements TableCellRenderer {
 					null);
 			break;
 		}
+
+		if (tcc == null) return null;
 		
 		if (prj.isRunning()) {
 			tcc.setFont(tcc.getFont().deriveFont(Font.BOLD));

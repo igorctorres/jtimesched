@@ -150,10 +150,10 @@ public class ProjectSerializer {
 			p.setTimeStart(new Date(ts));
 			
 			e = getFirstElement(pe, "running");
-			p.setRunning((e.getFirstChild().getNodeValue().equals("yes")) ? true : false);
+			p.setRunning(e.getFirstChild().getNodeValue().equals("yes"));
 			
 			e = getFirstElement(pe, "checked");
-			p.setChecked((e.getFirstChild().getNodeValue().equals("yes")) ? true : false);
+			p.setChecked(e.getFirstChild().getNodeValue().equals("yes"));
 			
 			e = getFirstElement(pe, "time");
 			int seconds = Integer.parseInt(e.getAttribute("overall"));
