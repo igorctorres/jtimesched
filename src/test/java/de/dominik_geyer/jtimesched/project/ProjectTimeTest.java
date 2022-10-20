@@ -22,10 +22,10 @@ class ProjectTimeTest {
     @ParameterizedTest
     @CsvSource({
             "0,         0:00:00",
-            "1,         0:00:01",
+            "59,        0:00:59",
             "60,        0:01:00",
-            "3600,      1:00:00",
-            "5025,      1:23:45"
+            "3599,      0:59:59",
+            "3600,      1:00:00"
     })
     void formatSecondsWithPositive(int secs, String expected) {
         String formatted = ProjectTime.formatSeconds(secs);
@@ -39,22 +39,60 @@ class ProjectTimeTest {
         });
     }
 
-    @Test
-    void parseSecondsWithNegative() {
+    @ParameterizedTest
+    @CsvSource({
+            "0:-1:-1",
+            "0:-1:00",
+            "0:-1:59",
+            "0:-1:60",
+            "0:00:-1",
+            "0:59:-1",
+            "0:60:-1",
+            "1:-1:-1",
+            "1:-1:00",
+            "1:-1:59",
+            "1:-1:60",
+            "1:00:-1",
+            "1:59:-1",
+            "1:60:-1",
+    })
+    void parseSecondsWithNegativeValues(String timeString) {
         assertThrows(ParseException.class, () -> {
-            ProjectTime.parseSeconds("-1:00:00");
+            ProjectTime.parseSeconds(timeString);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "0:00:60",
+            "0:59:60",
+            "0:60:00",
+            "0:60:59",
+            "0:60:60",
+            "1:00:60",
+            "1:59:60",
+            "1:60:00",
+            "1:60:59",
+            "1:60:60",
+    })
+    void parseSecondsWithSecondsAndMinutesGreaterThan59(String timeString) {
+        assertThrows(ParseException.class, () -> {
+            ProjectTime.parseSeconds(timeString);
         });
     }
 
     @ParameterizedTest
     @CsvSource({
             "0:00:00, 0",
-            "0:00:01, 1",
-            "0:01:00, 60",
+            "0:00:59, 59",
+            "0:59:00, 3540",
+            "0:59:59, 3599",
+            "1:00:59, 3659",
+            "1:59:00, 7140",
+            "1:59:59, 7199",
             "1:00:00, 3600",
-            "1:23:45, 5025"
     })
-    void parseSecondsWithPositive(String timeString, int expected) throws ParseException {
+    void parseSecondsValidValues(String timeString, int expected) throws ParseException {
         int parsed = ProjectTime.parseSeconds(timeString);
         assertEquals(expected, parsed);
     }
