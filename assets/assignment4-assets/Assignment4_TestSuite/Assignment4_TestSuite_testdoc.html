@@ -1,0 +1,892 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="css/qftest.css">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="icons/favicon.ico">
+<title>Test Documentation for Test-suite Assignment4_TestSuite.qft</title>
+</head>
+<body>
+<header class="gutter-left">
+<div class="header">
+<h1 class="title">Test Documentation for Test-suite Assignment4_TestSuite.qft</h1>
+<div class="homeicon">
+<a href="http://www.qfs.de/en/qftest/index.html"><img width="127" height="42" alt="QF-Test" title="QF-Test" src="icons/qftest.png"></a>
+</div>
+</div>
+<div class="headerversion">
+<div>Version 6.0.3</div>
+</div>
+</header>
+<section class="summarylegend gutter-left">
+<div class="summary">
+<h2 class="suitesummarytitle">Summary</h2>
+<div class="suitesummary">
+<div>
+<div class="label">Test-suite</div>
+<div>Assignment4_TestSuite.qft</div>
+</div>
+<div>
+<div class="label">Directory</div>
+<div>...</div>
+</div>
+</div>
+</div>
+</section>
+<nav class="testdocnav">
+<a href="#alltdtestsets">Overview: Test-sets</a><a href="#alltdtestcases">Overview: Test-sets and test-cases</a><a href="#details">Details</a>
+</nav>
+<div class="alltdtestsets branch">
+<nav class="tdtestsetalllinks branchlinks gutter-left">
+<a name="alltdtestsets"></a><a name=""></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a>
+</nav>
+<h2 class="tdtestsetalltitle branchtitle gutter-left">Overview: Test-sets</h2>
+<table cellspacing="0" class="tdtestsetalllist branchlist">
+<tr class="headers">
+<th class="margin"></th><th class="testset">Test-set</th><th class="desc">Description</th>
+</tr>
+<tr>
+<td class="margin"></td><td class="testset">
+<div class="padding-left-0" style="padding-left:0px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testset.png" alt="Test-set" title="Test-set"></div>
+<div class="item">
+<a href="#Sorting">Sorting</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testset">
+<div class="padding-left-0" style="padding-left:0px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testset.png" alt="Test-set" title="Test-set"></div>
+<div class="item">
+<a href="#Time_tracking">Time tracking</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testset">
+<div class="padding-left-0" style="padding-left:0px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testset.png" alt="Test-set" title="Test-set"></div>
+<div class="item">
+<a href="#Daily_quota">Daily quota</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testset">
+<div class="padding-left-0" style="padding-left:0px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testset.png" alt="Test-set" title="Test-set"></div>
+<div class="item">
+<a href="#Sneak_paths">Sneak paths</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+</table>
+</div>
+<div class="alltdtestcases branch">
+<nav class="tdtestcasealllinks branchlinks gutter-left">
+<a name="alltdtestcases"></a><a name=""></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a>
+</nav>
+<h2 class="tdtestcasealltitle branchtitle gutter-left">Overview: Test-sets and test-cases</h2>
+<table cellspacing="0" class="tdtestcasealllist">
+<tr class="headers">
+<th class="margin"></th><th class="testset">Test-set/Test-case</th><th class="desc">Description</th>
+</tr>
+<tr>
+<td class="margin"></td><td class="testset">
+<div class="padding-left-0" style="padding-left:0px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testset.png" alt="Test-set" title="Test-set"></div>
+<div class="item">
+<a href="#Sorting">Sorting</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Sorting.unsorted_-_sorted_ascending_-_unsorted">unsorted - sorted ascending - unsorted</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Sorting.unsorted_-_ascending_-_descending_-_unsorted">unsorted - ascending - descending - unsorted</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Sorting.unsorted_-_ascending_-_descending_-_ascending">unsorted - ascending - descending - ascending</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testset">
+<div class="padding-left-0" style="padding-left:0px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testset.png" alt="Test-set" title="Test-set"></div>
+<div class="item">
+<a href="#Time_tracking">Time tracking</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Time_tracking.no_project_-_idle_-_no_project">no project - idle - no project</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Time_tracking.no_project_-_idle_-_running_-_no_project">no project - idle - running - no project</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Time_tracking.no_project_-_idle_-_running_-_idle">no project - idle - running - idle</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testset">
+<div class="padding-left-0" style="padding-left:0px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testset.png" alt="Test-set" title="Test-set"></div>
+<div class="item">
+<a href="#Daily_quota">Daily quota</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_white">white - white</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_green_-_white">white - green - white</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_green_-_green_1">white - green - green 1</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_green_-_green_2">white - green - green 2</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_green_-_red_1">white - green - red 1</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_green_-_red_2">white - green - red 2</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_red_-_white">white - red - white</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_red_-_green_1">white - red - green 1</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_red_-_green_2">white - red - green 2</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_red_-_red_1">white - red - red 1</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_red_-_red_2">white - red - red 2</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testset">
+<div class="padding-left-0" style="padding-left:0px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testset.png" alt="Test-set" title="Test-set"></div>
+<div class="item">
+<a href="#Sneak_paths">Sneak paths</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Sneak_paths.sneak_path_1">sneak path 1</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Sneak_paths.sneak_path_2">sneak path 2</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="padding-left-16" style="padding-left:16px">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Sneak_paths.sneak_path_3">sneak path 3</a>
+</div>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+</table>
+</div>
+<div class="details">
+<a name="details"></a>
+<nav class="detailslinks overviewlinks gutter-left">
+<a name=""></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a>
+</nav>
+<h2 class="detailstitle title gutter-left">Details</h2>
+</div>
+<div class="tdtestset branch" name="Sorting">
+<nav class="tdtestsetlinks branchlinks gutter-left">
+<a name="Sorting"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a>
+<div class="links"></div>
+</nav>
+<h3 class="tdtestsettitle branchtitle gutter-left">
+<td class="margin"></td>Test-set: "Sorting"</h3>
+<div class="tdtestsetdesc branchdesc gutter-left"></div>
+<table cellspacing="0" class="tdtestsetlist">
+<tr class="headers">
+<th class="margin"></th><th class="testcase">Test-case</th><th class="desc">Description</th>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Sorting.unsorted_-_sorted_ascending_-_unsorted">unsorted - sorted ascending - unsorted</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Sorting.unsorted_-_ascending_-_descending_-_unsorted">unsorted - ascending - descending - unsorted</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Sorting.unsorted_-_ascending_-_descending_-_ascending">unsorted - ascending - descending - ascending</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+</table>
+</div>
+<div class="tdtestcase leaf" name="Sorting.unsorted - sorted ascending - unsorted">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Sorting.unsorted_-_sorted_ascending_-_unsorted"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Sorting">Sorting</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "unsorted - sorted ascending - unsorted"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestcase leaf" name="Sorting.unsorted - ascending - descending - unsorted">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Sorting.unsorted_-_ascending_-_descending_-_unsorted"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Sorting">Sorting</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "unsorted - ascending - descending - unsorted"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestcase leaf" name="Sorting.unsorted - ascending - descending - ascending">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Sorting.unsorted_-_ascending_-_descending_-_ascending"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Sorting">Sorting</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "unsorted - ascending - descending - ascending"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestset branch" name="Time tracking">
+<nav class="tdtestsetlinks branchlinks gutter-left">
+<a name="Time_tracking"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a>
+<div class="links"></div>
+</nav>
+<h3 class="tdtestsettitle branchtitle gutter-left">
+<td class="margin"></td>Test-set: "Time tracking"</h3>
+<div class="tdtestsetdesc branchdesc gutter-left"></div>
+<table cellspacing="0" class="tdtestsetlist">
+<tr class="headers">
+<th class="margin"></th><th class="testcase">Test-case</th><th class="desc">Description</th>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Time_tracking.no_project_-_idle_-_no_project">no project - idle - no project</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Time_tracking.no_project_-_idle_-_running_-_no_project">no project - idle - running - no project</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Time_tracking.no_project_-_idle_-_running_-_idle">no project - idle - running - idle</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+</table>
+</div>
+<div class="tdtestcase leaf" name="Time tracking.no project - idle - no project">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Time_tracking.no_project_-_idle_-_no_project"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Time_tracking">Time tracking</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "no project - idle - no project"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestcase leaf" name="Time tracking.no project - idle - running - no project">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Time_tracking.no_project_-_idle_-_running_-_no_project"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Time_tracking">Time tracking</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "no project - idle - running - no project"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestcase leaf" name="Time tracking.no project - idle - running - idle">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Time_tracking.no_project_-_idle_-_running_-_idle"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Time_tracking">Time tracking</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "no project - idle - running - idle"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestset branch" name="Daily quota">
+<nav class="tdtestsetlinks branchlinks gutter-left">
+<a name="Daily_quota"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a>
+<div class="links"></div>
+</nav>
+<h3 class="tdtestsettitle branchtitle gutter-left">
+<td class="margin"></td>Test-set: "Daily quota"</h3>
+<div class="tdtestsetdesc branchdesc gutter-left"></div>
+<table cellspacing="0" class="tdtestsetlist">
+<tr class="headers">
+<th class="margin"></th><th class="testcase">Test-case</th><th class="desc">Description</th>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_white">white - white</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_green_-_white">white - green - white</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_green_-_green_1">white - green - green 1</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_green_-_green_2">white - green - green 2</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_green_-_red_1">white - green - red 1</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_green_-_red_2">white - green - red 2</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_red_-_white">white - red - white</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_red_-_green_1">white - red - green 1</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_red_-_green_2">white - red - green 2</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_red_-_red_1">white - red - red 1</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Daily_quota.white_-_red_-_red_2">white - red - red 2</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+</table>
+</div>
+<div class="tdtestcase leaf" name="Daily quota.white - white">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Daily_quota.white_-_white"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Daily_quota">Daily quota</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "white - white"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestcase leaf" name="Daily quota.white - green - white">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Daily_quota.white_-_green_-_white"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Daily_quota">Daily quota</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "white - green - white"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestcase leaf" name="Daily quota.white - green - green 1">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Daily_quota.white_-_green_-_green_1"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Daily_quota">Daily quota</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "white - green - green 1"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestcase leaf" name="Daily quota.white - green - green 2">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Daily_quota.white_-_green_-_green_2"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Daily_quota">Daily quota</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "white - green - green 2"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestcase leaf" name="Daily quota.white - green - red 1">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Daily_quota.white_-_green_-_red_1"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Daily_quota">Daily quota</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "white - green - red 1"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestcase leaf" name="Daily quota.white - green - red 2">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Daily_quota.white_-_green_-_red_2"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Daily_quota">Daily quota</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "white - green - red 2"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestcase leaf" name="Daily quota.white - red - white">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Daily_quota.white_-_red_-_white"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Daily_quota">Daily quota</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "white - red - white"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestcase leaf" name="Daily quota.white - red - green 1">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Daily_quota.white_-_red_-_green_1"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Daily_quota">Daily quota</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "white - red - green 1"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestcase leaf" name="Daily quota.white - red - green 2">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Daily_quota.white_-_red_-_green_2"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Daily_quota">Daily quota</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "white - red - green 2"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestcase leaf" name="Daily quota.white - red - red 1">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Daily_quota.white_-_red_-_red_1"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Daily_quota">Daily quota</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "white - red - red 1"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestcase leaf" name="Daily quota.white - red - red 2">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Daily_quota.white_-_red_-_red_2"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Daily_quota">Daily quota</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "white - red - red 2"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestset branch" name="Sneak paths">
+<nav class="tdtestsetlinks branchlinks gutter-left">
+<a name="Sneak_paths"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a>
+<div class="links"></div>
+</nav>
+<h3 class="tdtestsettitle branchtitle gutter-left">
+<td class="margin"></td>Test-set: "Sneak paths"</h3>
+<div class="tdtestsetdesc branchdesc gutter-left"></div>
+<table cellspacing="0" class="tdtestsetlist">
+<tr class="headers">
+<th class="margin"></th><th class="testcase">Test-case</th><th class="desc">Description</th>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Sneak_paths.sneak_path_1">sneak path 1</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Sneak_paths.sneak_path_2">sneak path 2</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+<tr>
+<td class="margin"></td><td class="testcase">
+<div class="withicon">
+<div class="icon">
+<img width="16" height="16" class="icon" src="icons/testcase.png" alt="Test-case" title="Test-case"></div>
+<div class="item">
+<a href="#Sneak_paths.sneak_path_3">sneak path 3</a>
+</div>
+</div>
+</td><td class="desc">&nbsp;</td>
+</tr>
+</table>
+</div>
+<div class="tdtestcase leaf" name="Sneak paths.sneak path 1">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Sneak_paths.sneak_path_1"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Sneak_paths">Sneak paths</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "sneak path 1"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestcase leaf" name="Sneak paths.sneak path 2">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Sneak_paths.sneak_path_2"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Sneak_paths">Sneak paths</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "sneak path 2"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<div class="tdtestcase leaf" name="Sneak paths.sneak path 3">
+<nav class="tdtestcaselinks leaflinks gutter-left">
+<a name="Sneak_paths.sneak_path_3"></a><a class="nav-link" href="testdoc.html">Summary</a><a class="nav-link test-suite-link" href="#">.../Assignment4_TestSuite.qft</a><a class="nav-link" href="#Sneak_paths">Sneak paths</a>
+<div class="links"></div>
+</nav>
+<h4 class="tdtestcasetitle leaftitle gutter-left">
+<td class="margin"></td>Test-case: "sneak path 3"</h4>
+<div class="tdtestcasedesc leafdesc gutter-left"></div>
+</div>
+<footer>
+<div class="createdcopy">Created: 2022-11-04 19:27:41</div>
+</footer>
+</body>
+</html>

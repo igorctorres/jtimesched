@@ -1,0 +1,1698 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE RootStep>
+<RootStep id="_0" name="Assignment 4"
+          signature="B4D3336A65C55E6E0320E714F23C3B9FD7376DA8"
+          version="6.0.3">
+  <include>qfs.qft</include>
+  <TestSet id="_g" name="Sorting">
+    <TestCase id="_1t" name="unsorted - sorted ascending - unsorted">
+      <SetupSequence id="_1D"
+                     name="open application and create test projects">
+        <SetGlobalStep id="_1E" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_1F" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_1G" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_1H">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_1I"/>
+        </IfSequence>
+        <BasicSequence id="_1V" name="Create test projects">
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_1W" modifiers="16"/>
+          <TextInputStep clear="true" client="$(client)"
+                         component="frameJTimeSched.text" id="_1X">
+            <text>1st Project</text>
+          </TextInputStep>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_1Y" keychar="10" keycode="10"
+                        modifiers="0"/>
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_1Z" modifiers="16"/>
+          <TextInputStep clear="true" client="$(client)"
+                         component="frameJTimeSched.text" id="_1a">
+            <text>Project B</text>
+          </TextInputStep>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_1b" keychar="10" keycode="10"
+                        modifiers="0"/>
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_1c" modifiers="16"/>
+          <TextInputStep clear="true" client="$(client)"
+                         component="frameJTimeSched.text" id="_1d">
+            <text>2nd Project</text>
+          </TextInputStep>
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_1e" modifiers="16"/>
+          <TextInputStep clear="true" client="$(client)"
+                         component="frameJTimeSched.text" id="_1f">
+            <text>Project A</text>
+          </TextInputStep>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_1g" keychar="10" keycode="10"
+                        modifiers="0"/>
+        </BasicSequence>
+      </SetupSequence>
+      <BasicSequence id="_6a" name="click title - click created">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.header@Title"
+                        event="MOUSE_MPRC" id="_6b" modifiers="16"/>
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.header@Created"
+                        event="MOUSE_MPRC" id="_6c" modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence id="_1u" name="assert unsorted">
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Title&amp;0"
+                         id="_1v">
+          <text>1st Project</text>
+        </CheckStringStep>
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Title&amp;1"
+                         id="_1w">
+          <text>Project B</text>
+        </CheckStringStep>
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Title&amp;2"
+                         id="_1x">
+          <text>2nd Project</text>
+        </CheckStringStep>
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Title&amp;3"
+                         id="_1y">
+          <text>Project A</text>
+        </CheckStringStep>
+      </BasicSequence>
+    </TestCase>
+    <TestCase id="_1z" name="unsorted - ascending - descending - unsorted">
+      <SetupSequence id="_1+"
+                     name="open application and create test projects">
+        <SetGlobalStep id="_1-" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_20" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_21" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_22">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_23"/>
+        </IfSequence>
+        <BasicSequence id="_1h" name="Create test projects">
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_1i" modifiers="16"/>
+          <TextInputStep clear="true" client="$(client)"
+                         component="frameJTimeSched.text" id="_1j">
+            <text>1st Project</text>
+          </TextInputStep>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_1k" keychar="10" keycode="10"
+                        modifiers="0"/>
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_1l" modifiers="16"/>
+          <TextInputStep clear="true" client="$(client)"
+                         component="frameJTimeSched.text" id="_1m">
+            <text>Project B</text>
+          </TextInputStep>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_1n" keychar="10" keycode="10"
+                        modifiers="0"/>
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_1o" modifiers="16"/>
+          <TextInputStep clear="true" client="$(client)"
+                         component="frameJTimeSched.text" id="_1p">
+            <text>2nd Project</text>
+          </TextInputStep>
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_1q" modifiers="16"/>
+          <TextInputStep clear="true" client="$(client)"
+                         component="frameJTimeSched.text" id="_1r">
+            <text>Project A</text>
+          </TextInputStep>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_1s" keychar="10" keycode="10"
+                        modifiers="0"/>
+        </BasicSequence>
+      </SetupSequence>
+      <BasicSequence id="_18"
+                     name="click title - click title - click created">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.header@Title"
+                        event="MOUSE_MPRC" id="_19" modifiers="16"/>
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.header@Title"
+                        event="MOUSE_MPRC" id="_1A" modifiers="16"/>
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.header@Created"
+                        event="MOUSE_MPRC" id="_1B" modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence id="_24" name="assert unsorted">
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Title&amp;0"
+                         id="_25">
+          <text>1st Project</text>
+        </CheckStringStep>
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Title&amp;1"
+                         id="_26">
+          <text>Project B</text>
+        </CheckStringStep>
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Title&amp;2"
+                         id="_27">
+          <text>2nd Project</text>
+        </CheckStringStep>
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Title&amp;3"
+                         id="_28">
+          <text>Project A</text>
+        </CheckStringStep>
+      </BasicSequence>
+    </TestCase>
+    <TestCase id="_3j" name="unsorted - ascending - descending - ascending">
+      <SetupSequence id="_3R"
+                     name="open application and create test projects">
+        <SetGlobalStep id="_3S" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_3T" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_3U" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_3V">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_3W"/>
+        </IfSequence>
+        <BasicSequence id="_3X" name="Create test projects">
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_3Y" modifiers="16"/>
+          <TextInputStep clear="true" client="$(client)"
+                         component="frameJTimeSched.text" id="_3Z">
+            <text>1st Project</text>
+          </TextInputStep>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_3a" keychar="10" keycode="10"
+                        modifiers="0"/>
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_3b" modifiers="16"/>
+          <TextInputStep clear="true" client="$(client)"
+                         component="frameJTimeSched.text" id="_3c">
+            <text>Project B</text>
+          </TextInputStep>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_3d" keychar="10" keycode="10"
+                        modifiers="0"/>
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_3e" modifiers="16"/>
+          <TextInputStep clear="true" client="$(client)"
+                         component="frameJTimeSched.text" id="_3f">
+            <text>2nd Project</text>
+          </TextInputStep>
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_3g" modifiers="16"/>
+          <TextInputStep clear="true" client="$(client)"
+                         component="frameJTimeSched.text" id="_3h">
+            <text>Project A</text>
+          </TextInputStep>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_3i" keychar="10" keycode="10"
+                        modifiers="0"/>
+        </BasicSequence>
+      </SetupSequence>
+      <BasicSequence id="_3k" name="click title - click title - click title">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.header@Title"
+                        event="MOUSE_MPRC" id="_3l" modifiers="16"/>
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.header@Title"
+                        event="MOUSE_MPRC" id="_3m" modifiers="16"/>
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.header@Title"
+                        event="MOUSE_MPRC" id="_3n" modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence id="_3o" name="assert unsorted">
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Title&amp;0"
+                         id="_3p">
+          <text>1st Project</text>
+        </CheckStringStep>
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Title&amp;1"
+                         id="_3q">
+          <text>2nd Project</text>
+        </CheckStringStep>
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Title&amp;2"
+                         id="_3r">
+          <text>Project A</text>
+        </CheckStringStep>
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Title&amp;3"
+                         id="_3s">
+          <text>Project B</text>
+        </CheckStringStep>
+      </BasicSequence>
+    </TestCase>
+  </TestSet>
+  <TestSet id="_1" name="Time tracking">
+    <TestCase id="_2" name="no project - idle - no project">
+      <SetupSequence id="_6" name="Open application">
+        <SetGlobalStep id="_7" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_8" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_9" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_A">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_B"/>
+        </IfSequence>
+      </SetupSequence>
+      <BasicSequence id="_H" name="add project - delete ">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="buttonAdd_project" event="MOUSE_MPRC"
+                        id="_I" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_J" keychar="10" keycode="10"
+                      modifiers="0"/>
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table&amp;0&amp;0"
+                        event="MOUSE_DBLCLK" id="_K" modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence id="_P" name="assert no project">
+        <CheckStringStep checktype="header" client="$(client)"
+                         component="frameJTimeSched.table&amp;0" id="_Q"/>
+      </BasicSequence>
+    </TestCase>
+    <TestCase id="_R" name="no project - idle - running - no project">
+      <SetupSequence id="_S" name="Open application">
+        <SetGlobalStep id="_T" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_U" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_V" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_W">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_X"/>
+        </IfSequence>
+      </SetupSequence>
+      <BasicSequence id="_Y" name="add project - start - delete">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="buttonAdd_project" event="MOUSE_MPRC"
+                        id="_Z" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_a" keychar="10" keycode="10"
+                      modifiers="0"/>
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table&amp;7&amp;0"
+                        event="MOUSE_MPRC" id="_b" modifiers="16"/>
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table&amp;0&amp;0"
+                        event="MOUSE_DBLCLK" id="_c" modifiers="16"
+                        predelay="3000"/>
+      </BasicSequence>
+      <BasicSequence id="_e" name="assert no project">
+        <CheckStringStep checktype="header" client="$(client)"
+                         component="frameJTimeSched.table&amp;0" id="_f"/>
+      </BasicSequence>
+    </TestCase>
+    <TestCase id="_6d" name="no project - idle - running - idle">
+      <SetupSequence id="_74" name="Open application">
+        <SetGlobalStep id="_75" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_76" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_77" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_78">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_79"/>
+        </IfSequence>
+      </SetupSequence>
+      <BasicSequence id="_6k" name="add project - start - pause">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="buttonAdd_project" event="MOUSE_MPRC"
+                        id="_6l" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_6m" keychar="10" keycode="10"
+                      modifiers="0"/>
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table&amp;7&amp;0"
+                        event="MOUSE_MPRC" id="_6n" modifiers="16"/>
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table&amp;7&amp;0"
+                        event="MOUSE_MPRC" id="_6w" modifiers="16"
+                        predelay="3000"/>
+      </BasicSequence>
+      <BasicSequence id="_6z" name="assert idle">
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Time Today&amp;0"
+                         id="_6+">
+          <text>0:00:03</text>
+        </CheckStringStep>
+      </BasicSequence>
+    </TestCase>
+  </TestSet>
+  <TestSet id="_6-" name="Daily quota">
+    <TestCase id="_70" name="white - white">
+      <SetupSequence id="_BR" name="Open application and create new project">
+        <SetGlobalStep id="_BS" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_BT" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_BU" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_BV">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_BW"/>
+        </IfSequence>
+        <BasicSequence id="_BX" name="Create new project">
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_BY" modifiers="16"/>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_BZ" keychar="10" keycode="10"
+                        modifiers="0"/>
+        </BasicSequence>
+      </SetupSequence>
+      <BasicSequence id="_Ba" name="set time today 1 second">
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_DBLCLK" id="_Bb" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PRESSED" id="_Bc" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_Bd" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_RELEASED" id="_Be" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="frameJTimeSched.text" id="_Bf">
+          <text>0:00:01</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_Bg" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_Bl" name="assert white">
+        <CheckImageStep checktype="item_image" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        height="2" id="_Bm" width="20" x="0" y="0">
+          <ImageNode height="21" name="checkimage" width="94">
+            <webp size="238">UaRz_,BAv(*wpBQPT?=ZbAAAQ:GtCAxH)\nzt|C|3FFf/[]Q3JRo[[tlFqGbeL-#O=Oou!^ru9Ue'L3`y|
+At;vDH"4eYqHC5Par4"CeGkLv}e0ZX@]r9e3qzP5/8H_sdw8Rz+:YD6yZdXLjX=AEAht$Z0m5EAq:X"+
+6~Q*+eNeJS2w*~cL|(c#($!{O\eRpG[tay$wiJcmNaOc88=E.HZyzO;?m"!Mf7j-^_hP3WJodSiDwknG
+[t,7{~DnuzlB$\/U5V=Mi"=%D~;g:Z$A!pPME`x(`Z$A`s;kGA</webp>
+          </ImageNode>
+        </CheckImageStep>
+      </BasicSequence>
+    </TestCase>
+    <TestCase id="_7b" name="white - green - white">
+      <SetupSequence id="_6e" name="Open application and create new project">
+        <SetGlobalStep id="_6f" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_6g" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_6h" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_6i">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_6j"/>
+        </IfSequence>
+        <BasicSequence id="_71" name="Create new project">
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_72" modifiers="16"/>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_73" keychar="10" keycode="10"
+                        modifiers="0"/>
+        </BasicSequence>
+      </SetupSequence>
+      <BasicSequence id="_7v" name="set time today 1 second">
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_DBLCLK" id="_80" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PRESSED" id="_81" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_82" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_RELEASED" id="_83" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="frameJTimeSched.text" id="_84">
+          <text>0:00:01</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_87" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_88" name="set daily quota 5 seconds">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_MPRC" id="_89" modifiers="4"
+                        popup="true"/>
+        <ComponentWaiter client="$(client)" component="dialogInput" id="_8A"/>
+        <TextInputStep client="$(client)"
+                       component="dialogInput.textEnter_new_quota_for_time_today:"
+                       id="_8D">
+          <text>0:00:05</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)"
+                      component="dialogInput.textEnter_new_quota_for_time_today:"
+                      event="KEY_PTR" id="_8E" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_8F" name="set daily quota 0 seconds">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_MPRC" id="_8G" modifiers="4"
+                        popup="true"/>
+        <ComponentWaiter client="$(client)" component="dialogInput" id="_8H"/>
+        <TextInputStep client="$(client)"
+                       component="dialogInput.textEnter_new_quota_for_time_today:"
+                       id="_8I">
+          <text>0:00:00</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)"
+                      component="dialogInput.textEnter_new_quota_for_time_today:"
+                      event="KEY_PTR" id="_8J" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_Bj" name="assert white">
+        <CheckImageStep checktype="item_image" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        height="2" id="_Bk" width="20" x="0" y="0">
+          <ImageNode height="21" name="checkimage" width="94">
+            <webp size="238">UaRz_,BAv(*wpBQPT?=ZbAAAQ:GtCAxH)\nzt|C|3FFf/[]Q3JRo[[tlFqGbeL-#O=Oou!^ru9Ue'L3`y|
+At;vDH"4eYqHC5Par4"CeGkLv}e0ZX@]r9e3qzP5/8H_sdw8Rz+:YD6yZdXLjX=AEAht$Z0m5EAq:X"+
+6~Q*+eNeJS2w*~cL|(c#($!{O\eRpG[tay$wiJcmNaOc88=E.HZyzO;?m"!Mf7j-^_hP3WJodSiDwknG
+[t,7{~DnuzlB$\/U5V=Mi"=%D~;g:Z$A!pPME`x(`Z$A`s;kGA</webp>
+          </ImageNode>
+        </CheckImageStep>
+      </BasicSequence>
+    </TestCase>
+    <TestCase id="_8Y" name="white - green - green 1">
+      <SetupSequence id="_8Z" name="Open application and create new project">
+        <SetGlobalStep id="_8a" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_8b" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_8c" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_8d">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_8e"/>
+        </IfSequence>
+        <BasicSequence id="_8f" name="Create new project">
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_8g" modifiers="16"/>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_8h" keychar="10" keycode="10"
+                        modifiers="0"/>
+        </BasicSequence>
+      </SetupSequence>
+      <BasicSequence id="_8i" name="set time today 1 second">
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_DBLCLK" id="_8j" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PRESSED" id="_8k" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_8l" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_RELEASED" id="_8m" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="frameJTimeSched.text" id="_8n">
+          <text>0:00:01</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_8o" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_8p" name="set daily quota 5 seconds">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_MPRC" id="_8q" modifiers="4"
+                        popup="true"/>
+        <ComponentWaiter client="$(client)" component="dialogInput" id="_8r"/>
+        <TextInputStep client="$(client)"
+                       component="dialogInput.textEnter_new_quota_for_time_today:"
+                       id="_8s">
+          <text>0:00:05</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)"
+                      component="dialogInput.textEnter_new_quota_for_time_today:"
+                      event="KEY_PTR" id="_8t" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_8z" name="set time today 2 seconds">
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_DBLCLK" id="_8+" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PRESSED" id="_8-" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_90" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_RELEASED" id="_91" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="frameJTimeSched.text" id="_92">
+          <text>0:00:02</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_93" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_98" name="assert green">
+        <CheckImageStep checktype="item_image" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        height="2" id="_99" width="20" x="0" y="0">
+          <ImageNode height="21" name="checkimage" width="94">
+            <webp size="290">UaRzrSCAv(*wpBQPT?'+hAAAQ:GtCAAKPHozRDB"(g^I@Bnv:\zXnz%ZMzi(q.zCMsi3X/lzV3|'z)rnA@
+:,p~p'DI6FIO:F6wFW`{)"qrC~n%UZ1_;9:5n|VedZI'0[jh\~r}7\xC*[OK8l`fYhJCDD/Bi4:y8kFF
+_~ruRt'OL"B7=J'xqO8iB.AkF?mkB"8xFP4v/6[`EBFH:WE`{s*^Hi\_4;{=?lLN"C${`;ml"8|q"x.d
+gL`XuT0~r9[8;7.tKL_XS"J/~PUl8-JN"Ca4D9*]mZ`4$W'CDXY9QP5!Me=vhtnN^#UOW,?O_Xcc)P~{
+Hps)wo6B@Wfhfyn8@?"8xn6M"CU:wrw+MA</webp>
+          </ImageNode>
+        </CheckImageStep>
+      </BasicSequence>
+    </TestCase>
+    <TestCase id="_9H" name="white - green - green 2">
+      <SetupSequence id="_9I" name="Open application and create new project">
+        <SetGlobalStep id="_9J" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_9K" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_9L" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_9M">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_9N"/>
+        </IfSequence>
+        <BasicSequence id="_9O" name="Create new project">
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_9P" modifiers="16"/>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_9Q" keychar="10" keycode="10"
+                        modifiers="0"/>
+        </BasicSequence>
+      </SetupSequence>
+      <BasicSequence id="_9R" name="set time today 1 second">
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_DBLCLK" id="_9S" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PRESSED" id="_9T" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_9U" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_RELEASED" id="_9V" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="frameJTimeSched.text" id="_9W">
+          <text>0:00:01</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_9X" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_9Y" name="set daily quota 5 seconds">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_MPRC" id="_9Z" modifiers="4"
+                        popup="true"/>
+        <ComponentWaiter client="$(client)" component="dialogInput" id="_9a"/>
+        <TextInputStep client="$(client)"
+                       component="dialogInput.textEnter_new_quota_for_time_today:"
+                       id="_9b">
+          <text>0:00:05</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)"
+                      component="dialogInput.textEnter_new_quota_for_time_today:"
+                      event="KEY_PTR" id="_9c" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_9m" name="set daily quota 6 seconds">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_MPRC" id="_9n" modifiers="4"
+                        popup="true"/>
+        <ComponentWaiter client="$(client)" component="dialogInput" id="_9o"/>
+        <TextInputStep client="$(client)"
+                       component="dialogInput.textEnter_new_quota_for_time_today:"
+                       id="_9p">
+          <text>0:00:06</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)"
+                      component="dialogInput.textEnter_new_quota_for_time_today:"
+                      event="KEY_PTR" id="_9q" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_9k" name="assert green">
+        <CheckImageStep checktype="item_image" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        height="2" id="_9l" width="20" x="0" y="0">
+          <ImageNode height="21" name="checkimage" width="94">
+            <webp size="290">UaRzrSCAv(*wpBQPT?'+hAAAQ:GtCAAKPHozRDB"(g^I@Bnv:\zXnz%ZMzi(q.zCMsi3X/lzV3|'z)rnA@
+:,p~p'DI6FIO:F6wFW`{)"qrC~n%UZ1_;9:5n|VedZI'0[jh\~r}7\xC*[OK8l`fYhJCDD/Bi4:y8kFF
+_~ruRt'OL"B7=J'xqO8iB.AkF?mkB"8xFP4v/6[`EBFH:WE`{s*^Hi\_4;{=?lLN"C${`;ml"8|q"x.d
+gL`XuT0~r9[8;7.tKL_XS"J/~PUl8-JN"Ca4D9*]mZ`4$W'CDXY9QP5!Me=vhtnN^#UOW,?O_Xcc)P~{
+Hps)wo6B@Wfhfyn8@?"8xn6M"CU:wrw+MA</webp>
+          </ImageNode>
+        </CheckImageStep>
+      </BasicSequence>
+    </TestCase>
+    <TestCase id="_9r" name="white - green - red 1">
+      <SetupSequence id="_9s" name="Open application and create new project">
+        <SetGlobalStep id="_9t" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_9u" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_9v" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_9w">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_9x"/>
+        </IfSequence>
+        <BasicSequence id="_9y" name="Create new project">
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_9z" modifiers="16"/>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_9+" keychar="10" keycode="10"
+                        modifiers="0"/>
+        </BasicSequence>
+      </SetupSequence>
+      <BasicSequence id="_9-" name="set time today 1 second">
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_DBLCLK" id="_A0" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PRESSED" id="_A1" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_A2" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_RELEASED" id="_A3" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="frameJTimeSched.text" id="_A4">
+          <text>0:00:01</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_A5" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_A6" name="set daily quota 5 seconds">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_MPRC" id="_A7" modifiers="4"
+                        popup="true"/>
+        <ComponentWaiter client="$(client)" component="dialogInput" id="_A8"/>
+        <TextInputStep client="$(client)"
+                       component="dialogInput.textEnter_new_quota_for_time_today:"
+                       id="_A9">
+          <text>0:00:05</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)"
+                      component="dialogInput.textEnter_new_quota_for_time_today:"
+                      event="KEY_PTR" id="_AA" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_AB" name="set time today 6 seconds">
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_DBLCLK" id="_AC" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PRESSED" id="_AD" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_AE" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_RELEASED" id="_AF" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="frameJTimeSched.text" id="_AG">
+          <text>0:00:06</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_AH" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_AO" name="assert red">
+        <CheckImageStep checktype="item_image" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        height="2" id="_AP" width="20" x="0" y="0">
+          <ImageNode height="21" name="checkimage" width="94">
+            <webp size="296">UaRz#WCAv(*wpBQPT?gwiAAAQ:GtCA1LZ/VzAUC`e185\XUS)MRo7=]+E?`QJ=Qos@-o6h~@B@)~V_o1$w
+\vYYXLwD%Ff}dYKOP/zp~XX\B_\x7agm0C~r?d||(7%FEj3Und6F2,J|o8x`Vr?aI5[`r:i-:C)k4%]4
+DAPD6BFH.Au(K?pzO=9`**7hN=7p(~;]?:Ee^rC5nIo4qCUyq(txi3tGWz7ZTtS@:wZ\ZFN6l;K`3BrL
+0;[]1{zH'DUNHOQD{WkKcF).)T3zc4Qw)@"R[)%D!6nG[tU8f:'^MPUSxnTD{Wd9@z-v,:r1!L3WgzKK
+"|KfUT1m#P3WfGQs597vfiDr"GCa.Aj+2Yz\/_",AA</webp>
+          </ImageNode>
+        </CheckImageStep>
+      </BasicSequence>
+    </TestCase>
+    <TestCase id="_AQ" name="white - green - red 2">
+      <SetupSequence id="_AR" name="Open application and create new project">
+        <SetGlobalStep id="_AS" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_AT" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_AU" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_AV">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_AW"/>
+        </IfSequence>
+        <BasicSequence id="_AX" name="Create new project">
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_AY" modifiers="16"/>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_AZ" keychar="10" keycode="10"
+                        modifiers="0"/>
+        </BasicSequence>
+      </SetupSequence>
+      <BasicSequence id="_Aa" name="set time today 4 seconds">
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_DBLCLK" id="_Ab" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PRESSED" id="_Ac" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_Ad" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_RELEASED" id="_Ae" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="frameJTimeSched.text" id="_Af">
+          <text>0:00:04</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_Ag" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_Ah" name="set daily quota 5 seconds">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_MPRC" id="_Ai" modifiers="4"
+                        popup="true"/>
+        <ComponentWaiter client="$(client)" component="dialogInput" id="_Aj"/>
+        <TextInputStep client="$(client)"
+                       component="dialogInput.textEnter_new_quota_for_time_today:"
+                       id="_Ak">
+          <text>0:00:05</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)"
+                      component="dialogInput.textEnter_new_quota_for_time_today:"
+                      event="KEY_PTR" id="_Al" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_Av" name="set daily quota 3 seconds">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_MPRC" id="_Aw" modifiers="4"
+                        popup="true"/>
+        <ComponentWaiter client="$(client)" component="dialogInput" id="_Ax"/>
+        <TextInputStep client="$(client)"
+                       component="dialogInput.textEnter_new_quota_for_time_today:"
+                       id="_Ay">
+          <text>0:00:03</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)"
+                      component="dialogInput.textEnter_new_quota_for_time_today:"
+                      event="KEY_PTR" id="_Az" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_At" name="assert red">
+        <CheckImageStep checktype="item_image" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        height="2" id="_Au" width="20" x="0" y="0">
+          <ImageNode height="21" name="checkimage" width="94">
+            <webp size="296">UaRz#WCAv(*wpBQPT?gwiAAAQ:GtCA1LZ/VzAUC`e185\XUS)MRo7=]+E?`QJ=Qos@-o6h~@B@)~V_o1$w
+\vYYXLwD%Ff}dYKOP/zp~XX\B_\x7agm0C~r?d||(7%FEj3Und6F2,J|o8x`Vr?aI5[`r:i-:C)k4%]4
+DAPD6BFH.Au(K?pzO=9`**7hN=7p(~;]?:Ee^rC5nIo4qCUyq(txi3tGWz7ZTtS@:wZ\ZFN6l;K`3BrL
+0;[]1{zH'DUNHOQD{WkKcF).)T3zc4Qw)@"R[)%D!6nG[tU8f:'^MPUSxnTD{Wd9@z-v,:r1!L3WgzKK
+"|KfUT1m#P3WfGQs597vfiDr"GCa.Aj+2Yz\/_",AA</webp>
+          </ImageNode>
+        </CheckImageStep>
+      </BasicSequence>
+    </TestCase>
+    <TestCase id="_A+" name="white - red - white">
+      <SetupSequence id="_A-" name="Open application and create new project">
+        <SetGlobalStep id="_B0" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_B1" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_B2" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_B3">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_B4"/>
+        </IfSequence>
+        <BasicSequence id="_B5" name="Create new project">
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_B6" modifiers="16"/>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_B7" keychar="10" keycode="10"
+                        modifiers="0"/>
+        </BasicSequence>
+      </SetupSequence>
+      <BasicSequence id="_B8" name="set time today 10 seconds">
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_DBLCLK" id="_B9" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PRESSED" id="_BA" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_BB" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_RELEASED" id="_BC" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="frameJTimeSched.text" id="_BD">
+          <text>0:00:10</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_BE" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_BF" name="set daily quota 5 seconds">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_MPRC" id="_BG" modifiers="4"
+                        popup="true"/>
+        <ComponentWaiter client="$(client)" component="dialogInput" id="_BH"/>
+        <TextInputStep client="$(client)"
+                       component="dialogInput.textEnter_new_quota_for_time_today:"
+                       id="_BI">
+          <text>0:00:05</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)"
+                      component="dialogInput.textEnter_new_quota_for_time_today:"
+                      event="KEY_PTR" id="_BJ" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_BK" name="set daily quota 0 seconds">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_MPRC" id="_BL" modifiers="4"
+                        popup="true"/>
+        <ComponentWaiter client="$(client)" component="dialogInput" id="_BM"/>
+        <TextInputStep client="$(client)"
+                       component="dialogInput.textEnter_new_quota_for_time_today:"
+                       id="_BN">
+          <text>0:00:00</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)"
+                      component="dialogInput.textEnter_new_quota_for_time_today:"
+                      event="KEY_PTR" id="_BO" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_Bn" name="assert white">
+        <CheckImageStep checktype="item_image" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        height="2" id="_Bo" width="20" x="0" y="0">
+          <ImageNode height="21" name="checkimage" width="94">
+            <webp size="238">UaRz_,BAv(*wpBQPT?=ZbAAAQ:GtCAxH)\nzt|C|3FFf/[]Q3JRo[[tlFqGbeL-#O=Oou!^ru9Ue'L3`y|
+At;vDH"4eYqHC5Par4"CeGkLv}e0ZX@]r9e3qzP5/8H_sdw8Rz+:YD6yZdXLjX=AEAht$Z0m5EAq:X"+
+6~Q*+eNeJS2w*~cL|(c#($!{O\eRpG[tay$wiJcmNaOc88=E.HZyzO;?m"!Mf7j-^_hP3WJodSiDwknG
+[t,7{~DnuzlB$\/U5V=Mi"=%D~;g:Z$A!pPME`x(`Z$A`s;kGA</webp>
+          </ImageNode>
+        </CheckImageStep>
+      </BasicSequence>
+    </TestCase>
+    <TestCase id="_Bp" name="white - red - green 1">
+      <SetupSequence id="_Bq" name="Open application and create new project">
+        <SetGlobalStep id="_Br" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_Bs" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_Bt" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_Bu">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_Bv"/>
+        </IfSequence>
+        <BasicSequence id="_Bw" name="Create new project">
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_Bx" modifiers="16"/>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_By" keychar="10" keycode="10"
+                        modifiers="0"/>
+        </BasicSequence>
+      </SetupSequence>
+      <BasicSequence id="_Bz" name="set time today 10 seconds">
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_DBLCLK" id="_B+" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PRESSED" id="_B-" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_C0" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_RELEASED" id="_C1" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="frameJTimeSched.text" id="_C2">
+          <text>0:00:10</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_C3" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_C4" name="set daily quota 5 seconds">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_MPRC" id="_C5" modifiers="4"
+                        popup="true"/>
+        <ComponentWaiter client="$(client)" component="dialogInput" id="_C6"/>
+        <TextInputStep client="$(client)"
+                       component="dialogInput.textEnter_new_quota_for_time_today:"
+                       id="_C7">
+          <text>0:00:05</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)"
+                      component="dialogInput.textEnter_new_quota_for_time_today:"
+                      event="KEY_PTR" id="_C8" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_C9" name="set time today 2 seconds">
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_DBLCLK" id="_CA" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PRESSED" id="_CB" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_CC" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_RELEASED" id="_CD" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="frameJTimeSched.text" id="_CE">
+          <text>0:00:02</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_CF" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_CG" name="assert green">
+        <CheckImageStep checktype="item_image" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        height="2" id="_CH" width="20" x="0" y="0">
+          <ImageNode height="21" name="checkimage" width="94">
+            <webp size="290">UaRzrSCAv(*wpBQPT?'+hAAAQ:GtCAAKPHozRDB"(g^I@Bnv:\zXnz%ZMzi(q.zCMsi3X/lzV3|'z)rnA@
+:,p~p'DI6FIO:F6wFW`{)"qrC~n%UZ1_;9:5n|VedZI'0[jh\~r}7\xC*[OK8l`fYhJCDD/Bi4:y8kFF
+_~ruRt'OL"B7=J'xqO8iB.AkF?mkB"8xFP4v/6[`EBFH:WE`{s*^Hi\_4;{=?lLN"C${`;ml"8|q"x.d
+gL`XuT0~r9[8;7.tKL_XS"J/~PUl8-JN"Ca4D9*]mZ`4$W'CDXY9QP5!Me=vhtnN^#UOW,?O_Xcc)P~{
+Hps)wo6B@Wfhfyn8@?"8xn6M"CU:wrw+MA</webp>
+          </ImageNode>
+        </CheckImageStep>
+      </BasicSequence>
+    </TestCase>
+    <TestCase id="_CI" name="white - red - green 2">
+      <SetupSequence id="_CJ" name="Open application and create new project">
+        <SetGlobalStep id="_CK" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_CL" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_CM" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_CN">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_CO"/>
+        </IfSequence>
+        <BasicSequence id="_CP" name="Create new project">
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_CQ" modifiers="16"/>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_CR" keychar="10" keycode="10"
+                        modifiers="0"/>
+        </BasicSequence>
+      </SetupSequence>
+      <BasicSequence id="_CS" name="set time today 10 seconds">
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_DBLCLK" id="_CT" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PRESSED" id="_CU" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_CV" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_RELEASED" id="_CW" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="frameJTimeSched.text" id="_CX">
+          <text>0:00:10</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_CY" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_CZ" name="set daily quota 5 seconds">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_MPRC" id="_Ca" modifiers="4"
+                        popup="true"/>
+        <ComponentWaiter client="$(client)" component="dialogInput" id="_Cb"/>
+        <TextInputStep client="$(client)"
+                       component="dialogInput.textEnter_new_quota_for_time_today:"
+                       id="_Cc">
+          <text>0:00:05</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)"
+                      component="dialogInput.textEnter_new_quota_for_time_today:"
+                      event="KEY_PTR" id="_Cd" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_Cn" name="set daily quota 15 seconds">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_MPRC" id="_Co" modifiers="4"
+                        popup="true"/>
+        <ComponentWaiter client="$(client)" component="dialogInput" id="_Cp"/>
+        <TextInputStep client="$(client)"
+                       component="dialogInput.textEnter_new_quota_for_time_today:"
+                       id="_Cq">
+          <text>0:00:15</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)"
+                      component="dialogInput.textEnter_new_quota_for_time_today:"
+                      event="KEY_PTR" id="_Cr" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_Cl" name="assert green">
+        <CheckImageStep checktype="item_image" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        height="2" id="_Cm" width="20" x="0" y="0">
+          <ImageNode height="21" name="checkimage" width="94">
+            <webp size="290">UaRzrSCAv(*wpBQPT?'+hAAAQ:GtCAAKPHozRDB"(g^I@Bnv:\zXnz%ZMzi(q.zCMsi3X/lzV3|'z)rnA@
+:,p~p'DI6FIO:F6wFW`{)"qrC~n%UZ1_;9:5n|VedZI'0[jh\~r}7\xC*[OK8l`fYhJCDD/Bi4:y8kFF
+_~ruRt'OL"B7=J'xqO8iB.AkF?mkB"8xFP4v/6[`EBFH:WE`{s*^Hi\_4;{=?lLN"C${`;ml"8|q"x.d
+gL`XuT0~r9[8;7.tKL_XS"J/~PUl8-JN"Ca4D9*]mZ`4$W'CDXY9QP5!Me=vhtnN^#UOW,?O_Xcc)P~{
+Hps)wo6B@Wfhfyn8@?"8xn6M"CU:wrw+MA</webp>
+          </ImageNode>
+        </CheckImageStep>
+      </BasicSequence>
+    </TestCase>
+    <TestCase id="_Cs" name="white - red - red 1">
+      <SetupSequence id="_Ct" name="Open application and create new project">
+        <SetGlobalStep id="_Cu" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_Cv" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_Cw" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_Cx">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_Cy"/>
+        </IfSequence>
+        <BasicSequence id="_Cz" name="Create new project">
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_C+" modifiers="16"/>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_C-" keychar="10" keycode="10"
+                        modifiers="0"/>
+        </BasicSequence>
+      </SetupSequence>
+      <BasicSequence id="_DL" name="set time today 10 seconds">
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_DBLCLK" id="_DM" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PRESSED" id="_DN" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_DO" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_RELEASED" id="_DP" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="frameJTimeSched.text" id="_DQ">
+          <text>0:00:10</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_DR" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_D7" name="set daily quota 5 seconds">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_MPRC" id="_D8" modifiers="4"
+                        popup="true"/>
+        <ComponentWaiter client="$(client)" component="dialogInput" id="_D9"/>
+        <TextInputStep client="$(client)"
+                       component="dialogInput.textEnter_new_quota_for_time_today:"
+                       id="_DA">
+          <text>0:00:05</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)"
+                      component="dialogInput.textEnter_new_quota_for_time_today:"
+                      event="KEY_PTR" id="_DB" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_DC" name="set time today 6 seconds">
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_DBLCLK" id="_DD" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PRESSED" id="_DE" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_DF" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_RELEASED" id="_DG" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="frameJTimeSched.text" id="_DH">
+          <text>0:00:06</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_DI" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_DJ" name="assert red">
+        <CheckImageStep checktype="item_image" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        height="2" id="_DK" width="20" x="0" y="0">
+          <ImageNode height="21" name="checkimage" width="94">
+            <webp size="296">UaRz#WCAv(*wpBQPT?gwiAAAQ:GtCA1LZ/VzAUC`e185\XUS)MRo7=]+E?`QJ=Qos@-o6h~@B@)~V_o1$w
+\vYYXLwD%Ff}dYKOP/zp~XX\B_\x7agm0C~r?d||(7%FEj3Und6F2,J|o8x`Vr?aI5[`r:i-:C)k4%]4
+DAPD6BFH.Au(K?pzO=9`**7hN=7p(~;]?:Ee^rC5nIo4qCUyq(txi3tGWz7ZTtS@:wZ\ZFN6l;K`3BrL
+0;[]1{zH'DUNHOQD{WkKcF).)T3zc4Qw)@"R[)%D!6nG[tU8f:'^MPUSxnTD{Wd9@z-v,:r1!L3WgzKK
+"|KfUT1m#P3WfGQs597vfiDr"GCa.Aj+2Yz\/_",AA</webp>
+          </ImageNode>
+        </CheckImageStep>
+      </BasicSequence>
+    </TestCase>
+    <TestCase id="_DS" name="white - red - red 2">
+      <SetupSequence id="_DT" name="Open application and create new project">
+        <SetGlobalStep id="_DU" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_DV" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_DW" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_DX">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_DY"/>
+        </IfSequence>
+        <BasicSequence id="_DZ" name="Create new project">
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_Da" modifiers="16"/>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_Db" keychar="10" keycode="10"
+                        modifiers="0"/>
+        </BasicSequence>
+      </SetupSequence>
+      <BasicSequence id="_Dc" name="set time today 15 seconds">
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_DBLCLK" id="_Dd" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PRESSED" id="_De" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_Df" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_RELEASED" id="_Dg" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="frameJTimeSched.text" id="_Dh">
+          <text>0:00:15</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_Di" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_Dj" name="set daily quota 5 seconds">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_MPRC" id="_Dk" modifiers="4"
+                        popup="true"/>
+        <ComponentWaiter client="$(client)" component="dialogInput" id="_Dl"/>
+        <TextInputStep client="$(client)"
+                       component="dialogInput.textEnter_new_quota_for_time_today:"
+                       id="_Dm">
+          <text>0:00:05</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)"
+                      component="dialogInput.textEnter_new_quota_for_time_today:"
+                      event="KEY_PTR" id="_Dn" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_Do" name="set daily quota 10 seconds">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_MPRC" id="_Dp" modifiers="4"
+                        popup="true"/>
+        <ComponentWaiter client="$(client)" component="dialogInput" id="_Dq"/>
+        <TextInputStep client="$(client)"
+                       component="dialogInput.textEnter_new_quota_for_time_today:"
+                       id="_Dr">
+          <text>0:00:10</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)"
+                      component="dialogInput.textEnter_new_quota_for_time_today:"
+                      event="KEY_PTR" id="_Ds" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_Dt" name="assert red">
+        <CheckImageStep checktype="item_image" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        height="2" id="_Du" width="20" x="0" y="0">
+          <ImageNode height="21" name="checkimage" width="94">
+            <webp size="296">UaRz#WCAv(*wpBQPT?gwiAAAQ:GtCA1LZ/VzAUC`e185\XUS)MRo7=]+E?`QJ=Qos@-o6h~@B@)~V_o1$w
+\vYYXLwD%Ff}dYKOP/zp~XX\B_\x7agm0C~r?d||(7%FEj3Und6F2,J|o8x`Vr?aI5[`r:i-:C)k4%]4
+DAPD6BFH.Au(K?pzO=9`**7hN=7p(~;]?:Ee^rC5nIo4qCUyq(txi3tGWz7ZTtS@:wZ\ZFN6l;K`3BrL
+0;[]1{zH'DUNHOQD{WkKcF).)T3zc4Qw)@"R[)%D!6nG[tU8f:'^MPUSxnTD{Wd9@z-v,:r1!L3WgzKK
+"|KfUT1m#P3WfGQs597vfiDr"GCa.Aj+2Yz\/_",AA</webp>
+          </ImageNode>
+        </CheckImageStep>
+      </BasicSequence>
+    </TestCase>
+  </TestSet>
+  <TestSet id="_EO" name="Sneak paths">
+    <TestCase id="_EP" name="sneak path 1">
+      <SetupSequence id="_EQ"
+                     name="open application and create test projects">
+        <SetGlobalStep id="_ER" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_ES" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_ET" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_EU">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_EV"/>
+        </IfSequence>
+        <BasicSequence id="_EW" name="Create test projects">
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_EX" modifiers="16"/>
+          <TextInputStep clear="true" client="$(client)"
+                         component="frameJTimeSched.text" id="_EY">
+            <text>1st Project</text>
+          </TextInputStep>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_EZ" keychar="10" keycode="10"
+                        modifiers="0"/>
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_Ea" modifiers="16"/>
+          <TextInputStep clear="true" client="$(client)"
+                         component="frameJTimeSched.text" id="_Eb">
+            <text>Project B</text>
+          </TextInputStep>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_Ec" keychar="10" keycode="10"
+                        modifiers="0"/>
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_Ed" modifiers="16"/>
+          <TextInputStep clear="true" client="$(client)"
+                         component="frameJTimeSched.text" id="_Ee">
+            <text>2nd Project</text>
+          </TextInputStep>
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_Ef" modifiers="16"/>
+          <TextInputStep clear="true" client="$(client)"
+                         component="frameJTimeSched.text" id="_Eg">
+            <text>Project A</text>
+          </TextInputStep>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_Eh" keychar="10" keycode="10"
+                        modifiers="0"/>
+        </BasicSequence>
+      </SetupSequence>
+      <BasicSequence id="_Ei" name="click title">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.header@Title"
+                        event="MOUSE_MPRC" id="_Ej" modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence id="_El" name="assert sorted descending">
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Title&amp;0"
+                         id="_Em">
+          <text>Project B</text>
+        </CheckStringStep>
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Title&amp;1"
+                         id="_En">
+          <text>Project A</text>
+        </CheckStringStep>
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Title&amp;2"
+                         id="_Eo">
+          <text>2nd Project</text>
+        </CheckStringStep>
+        <CheckStringStep checktype="item" client="$(client)"
+                         component="frameJTimeSched.table@Title&amp;3"
+                         id="_Ep">
+          <text>1st Project</text>
+        </CheckStringStep>
+      </BasicSequence>
+    </TestCase>
+    <TestCase id="_Es" name="sneak path 2">
+      <SetupSequence id="_Et" name="Open application">
+        <SetGlobalStep id="_Eu" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_Ev" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_Ew" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_Ex">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_Ey"/>
+        </IfSequence>
+      </SetupSequence>
+      <BasicSequence id="_FC" name="Click on 'start' button (not there)">
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="frameJTimeSched.table&amp;7"
+                        event="MOUSE_MPRC" id="_FD" modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence id="_FA" name="assert visible item in project table">
+        <CheckBooleanStep checktype="item_visible" client="$(client)"
+                          component="frameJTimeSched.table@Time Today&amp;0"
+                          id="_FB"/>
+      </BasicSequence>
+    </TestCase>
+    <TestCase id="_Dx" name="sneak path 3">
+      <SetupSequence id="_Dy" name="Open application and create new project">
+        <SetGlobalStep id="_Dz" varname="client">
+          <default>jtimesched-1</default>
+        </SetGlobalStep>
+        <ClientWaiter client="$(client)" id="_D+" local="true" raise="false"
+                      resvarname="isSUTRunning" timeout="1">
+          <comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+        </ClientWaiter>
+        <IfSequence id="_D-" name="Launch SUT if not running"
+                    test="not $(isSUTRunning)">
+          <JavaClientStarter client="$(client)" executable="${qftest:java}"
+                             id="_E0">
+            <parameter>-jar</parameter>
+            <parameter>C:\Users\Robert\OneDrive\Desktop\Master\Semester1\Software Testing Verification and Validation\project\target\jtimesched-1.2-SNAPSHOT-jar-with-dependencies.jar</parameter>
+          </JavaClientStarter>
+          <ClientWaiter client="$(client)" id="_E1"/>
+        </IfSequence>
+        <BasicSequence id="_E2" name="Create new project">
+          <MouseEventStep clicks="1" client="$(client)"
+                          component="buttonAdd_project" event="MOUSE_MPRC"
+                          id="_E3" modifiers="16"/>
+          <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                        event="KEY_PTR" id="_E4" keychar="10" keycode="10"
+                        modifiers="0"/>
+        </BasicSequence>
+      </SetupSequence>
+      <BasicSequence id="_EG" name="set negative time">
+        <MouseEventStep clicks="2" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        event="MOUSE_DBLCLK" id="_EH" modifiers="16"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PRESSED" id="_EI" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_EJ" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_RELEASED" id="_EK" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_EL" keychar="8" keycode="8"
+                      modifiers="0"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="frameJTimeSched.text" id="_EM">
+          <text>0:00:-01</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="frameJTimeSched.text"
+                      event="KEY_PTR" id="_EN" keychar="10" keycode="10"
+                      modifiers="0"/>
+      </BasicSequence>
+      <BasicSequence id="_Eq" name="assert green">
+        <CheckImageStep checktype="item_image" client="$(client)"
+                        component="frameJTimeSched.table@Time Today&amp;0"
+                        height="2" id="_Er" width="20" x="0" y="0">
+          <ImageNode height="21" name="checkimage" width="94">
+            <webp size="290">UaRzrSCAv(*wpBQPT?'+hAAAQ:GtCAAKPHozRDB"(g^I@Bnv:\zXnz%ZMzi(q.zCMsi3X/lzV3|'z)rnA@
+:,p~p'DI6FIO:F6wFW`{)"qrC~n%UZ1_;9:5n|VedZI'0[jh\~r}7\xC*[OK8l`fYhJCDD/Bi4:y8kFF
+_~ruRt'OL"B7=J'xqO8iB.AkF?mkB"8xFP4v/6[`EBFH:WE`{s*^Hi\_4;{=?lLN"C${`;ml"8|q"x.d
+gL`XuT0~r9[8;7.tKL_XS"J/~PUl8-JN"Ca4D9*]mZ`4$W'CDXY9QP5!Me=vhtnN^#UOW,?O_Xcc)P~{
+Hps)wo6B@Wfhfyn8@?"8xn6M"CU:wrw+MA</webp>
+          </ImageNode>
+        </CheckImageStep>
+      </BasicSequence>
+    </TestCase>
+  </TestSet>
+  <PackageRoot id="_3"/>
+  <ExtraSequence id="_4"/>
+  <WindowList id="_5">
+    <WindowStep class="Window" feature="jTimeSched" height="200"
+                id="frameJTimeSched" uid="_C" width="600" x="514" y="406">
+      <extrafeature name="qfs:class" negate="false" regexp="false" state="0">de.dominik_geyer.jtimesched.gui.JTimeSchedFrame</extrafeature>
+      <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                    state="0">Window</extrafeature>
+      <extrafeature name="qfs:label" negate="false" regexp="false" state="1">jTimeSched</extrafeature>
+      <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                    state="0">javax.swing.JFrame</extrafeature>
+      <ComponentStep class="Button" classcount="9" classindex="4"
+                     feature="Add project" height="26" id="buttonAdd_project"
+                     uid="_D" width="119" x="9" y="165">
+        <extrafeature name="imagehash" negate="false" regexp="false"
+                      state="1">276999105</extrafeature>
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">javax.swing.JButton</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Add project</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">javax.swing.JButton</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Panel" classcount="11" classindex="4" height="127"
+                     id="frameJTimeSched.scroll" uid="_E" width="582" x="9"
+                     y="38">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">javax.swing.JScrollPane</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">javax.swing.JScrollPane</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Panel:ScrollPanel</extrafeature>
+        <ComponentStep class="TextField" classcount="1" classindex="0"
+                       height="21" id="frameJTimeSched.text" uid="_F"
+                       width="215" x="50" y="21">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">javax.swing.JTextField</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">TextField</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">javax.swing.JTextField</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Table" classcount="1" classindex="0"
+                       id="frameJTimeSched.table" uid="_G">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">de.dominik_geyer.jtimesched.gui.table.ProjectTable</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Table</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">javax.swing.JTable</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="TableHeader" classcount="1" classindex="0"
+                       id="frameJTimeSched.header" uid="_6Z">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">javax.swing.table.JTableHeader</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">TableHeader</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">javax.swing.table.JTableHeader</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" feature="Input" height="143" id="dialogInput"
+                modal="true" uid="_7C" width="309" x="145" y="28">
+      <extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JDialog</extrafeature>
+      <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                    state="0">Dialog</extrafeature>
+      <extrafeature name="qfs:label" negate="false" regexp="false" state="1">Input</extrafeature>
+      <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                    state="0">javax.swing.JDialog</extrafeature>
+      <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Window:Dialog</extrafeature>
+      <ComponentStep class="TextField" classcount="1" classindex="0"
+                     height="20"
+                     id="dialogInput.textEnter_new_quota_for_time_today:"
+                     uid="_7D" width="224" x="66" y="67">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">javax.swing.plaf.basic.BasicOptionPaneUI$$MultiplexingTextField</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">TextField</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Enter new quota for time today:</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">javax.swing.plaf.basic.BasicOptionPaneUI$$MultiplexingTextField</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+  </WindowList>
+</RootStep>
