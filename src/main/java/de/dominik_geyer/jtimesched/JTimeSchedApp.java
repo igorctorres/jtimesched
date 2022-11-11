@@ -74,11 +74,8 @@ public class JTimeSchedApp {
 			
 			System.exit(1);
 		}
-		
-		
-		// initialize logger
-		JTimeSchedApp.LOGGER = Logger.getLogger("JTimeSched");
-		JTimeSchedApp.LOGGER.setLevel(Level.ALL);
+
+		JTimeSchedApp.initLogger();
 		
 		try {
 			FileHandler fh = new FileHandler(JTimeSchedApp.LOG_FILE, true);
@@ -103,6 +100,11 @@ public class JTimeSchedApp {
 	{
 		String appVersion = Package.getPackage("de.dominik_geyer.jtimesched").getImplementationVersion();
 		return (appVersion != null) ? appVersion : "unknown";
+	}
+
+	public static void initLogger() {
+		JTimeSchedApp.LOGGER = Logger.getLogger("JTimeSched");
+		JTimeSchedApp.LOGGER.setLevel(Level.ALL);
 	}
 
 	private static boolean lockInstance() {

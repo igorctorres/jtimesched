@@ -12,12 +12,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProjectTimeTest {
 
-    @Test
-    void formatSecondsWithNegative() {
-        assertThrows(ProjectException.class, () -> {
-            ProjectTime.formatSeconds(-1);
-        });
-    }
+//    @Test
+//    void formatSecondsWithNegative() {
+//        assertThrows(ProjectException.class, () -> {
+//            ProjectTime.formatSeconds(-1);
+//        });
+//    }
 
     @ParameterizedTest
     @CsvSource({
