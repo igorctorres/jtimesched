@@ -98,6 +98,14 @@ class ProjectTimeTest {
     }
 
     @Test
+    void parseSecondsWithValidString() throws ParseException {
+        String timeString = "1:25:36";
+        int expected = 5136;
+        int parsed = ProjectTime.parseSeconds(timeString);
+        assertEquals(expected, parsed);
+    }
+
+    @Test
     void formatDate() {
         // given
         Date d = new Date(122, Calendar.OCTOBER, 7); // first int is the number of years since 1900
@@ -106,6 +114,7 @@ class ProjectTimeTest {
         // then
         assertEquals("2022-10-07", formatted);
     }
+
     @Test
     void formatDateNull() {
         assertThrows(NullPointerException.class, () -> {
