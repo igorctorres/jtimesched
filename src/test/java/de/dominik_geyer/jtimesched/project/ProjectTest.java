@@ -138,6 +138,12 @@ class ProjectTest {
     }
 
     @Test
+    void secondsTodayOne() {
+        testProject.setSecondsToday(1);
+        assertEquals(1, testProject.getSecondsToday());
+    }
+
+    @Test
     void secondsOverall() {
         testProject.setSecondsOverall(100);
         assertEquals(100, testProject.getSecondsOverall());
@@ -147,6 +153,12 @@ class ProjectTest {
     void secondsOverallNegative() {
         testProject.setSecondsOverall(-1);
         assertEquals(0, testProject.getSecondsOverall());
+    }
+
+    @Test
+    void secondsOverallOne() {
+        testProject.setSecondsOverall(1);
+        assertEquals(1, testProject.getSecondsOverall());
     }
 
     @Test
@@ -165,6 +177,15 @@ class ProjectTest {
         testProject.adjustSecondsToday(-1);
         assertEquals(50, testProject.getSecondsOverall());
         assertEquals(0, testProject.getSecondsToday());
+    }
+
+    @Test
+    void adjustSecondsTodayOne() {
+        testProject.setSecondsOverall(100);
+        testProject.setSecondsToday(50);
+        testProject.adjustSecondsToday(1);
+        assertEquals(51, testProject.getSecondsOverall());
+        assertEquals(1, testProject.getSecondsToday());
     }
 
     @Test
