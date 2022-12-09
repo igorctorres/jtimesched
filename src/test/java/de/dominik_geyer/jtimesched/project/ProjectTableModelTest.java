@@ -92,6 +92,16 @@ class ProjectTableModelTest {
     }
 
     @Test
+    void valueAtColumnCheckUncheck() {
+        Project project = new Project();
+        project.setChecked(true);
+        ProjectTableModel projectTableModel = new ProjectTableModel(new ArrayList<>());
+        projectTableModel.addProject(project);
+        projectTableModel.setValueAt(false, 0, ProjectTableModel.COLUMN_CHECK);
+        assertEquals(false, projectTableModel.getValueAt(0, ProjectTableModel.COLUMN_CHECK));
+    }
+
+    @Test
     void valueAtColumnTitle() {
         Project project = new Project("Test");
         ProjectTableModel projectTableModel = new ProjectTableModel(new ArrayList<>());
@@ -136,6 +146,43 @@ class ProjectTableModelTest {
         projectTableModel.addProject(project);
         projectTableModel.setValueAt(100, 0, ProjectTableModel.COLUMN_TIMETODAY);
         assertEquals(100, projectTableModel.getValueAt(0, ProjectTableModel.COLUMN_TIMETODAY));
+    }
+
+    @Test
+    void valueAtColumnTimeOverallCheckToday() {
+        Project project = new Project();
+        ProjectTableModel projectTableModel = new ProjectTableModel(new ArrayList<>());
+        projectTableModel.addProject(project);
+        project.setSecondsOverall(250);
+        project.setSecondsToday(100);
+        projectTableModel.setValueAt(350, 0, ProjectTableModel.COLUMN_TIMEOVERALL);
+        assertEquals(350, projectTableModel.getValueAt(0, ProjectTableModel.COLUMN_TIMEOVERALL));
+        assertEquals(100, projectTableModel.getValueAt(0, ProjectTableModel.COLUMN_TIMETODAY));
+    }
+
+    @Test
+    void valueAtColumnTimeTodayCheckOverall() {
+        Project project = new Project();
+        ProjectTableModel projectTableModel = new ProjectTableModel(new ArrayList<>());
+        projectTableModel.addProject(project);
+        project.setSecondsOverall(250);
+        project.setSecondsToday(100);
+        projectTableModel.setValueAt(200, 0, ProjectTableModel.COLUMN_TIMETODAY);
+        assertEquals(350, projectTableModel.getValueAt(0, ProjectTableModel.COLUMN_TIMEOVERALL));
+        assertEquals(200, projectTableModel.getValueAt(0, ProjectTableModel.COLUMN_TIMETODAY));
+    }
+
+    @Test
+    void valueAtColumnActionStartPause() {
+        Project project = new Project();
+        ProjectTableModel projectTableModel = new ProjectTableModel(new ArrayList<>());
+        projectTableModel.addProject(project);
+        try {
+            project.start();
+        } catch (ProjectException e) {
+            fail();
+        }
+        assertEquals(Boolean.TRUE, projectTableModel.getValueAt(0, ProjectTableModel.COLUMN_ACTION_STARTPAUSE));
     }
 
     @Test

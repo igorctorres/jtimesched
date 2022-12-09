@@ -72,4 +72,17 @@ public class ProjectSerializerTestDataflow {
 
         assertEquals(expected, result);
     }
+
+    @Test
+    void startXmlElementWithAttsNull() throws SAXException, IOException {
+
+        ProjectSerializer.startXmlElement(hd, "start", null);
+
+        out.flush();
+        String result = stream.toString();
+
+        String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><start";
+
+        assertEquals(expected, result);
+    }
 }
